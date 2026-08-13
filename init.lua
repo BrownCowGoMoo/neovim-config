@@ -63,5 +63,23 @@ do
 	})
 end
 
+--  ================================================================================
+--  PACKAGE HANDLING
+--  ================================================================================
 
+do
+	vim.api.nvim_create_autocmd('PackChanged', {
+		callback = function(event)
+			local name = event.data.spec.name
+			local type = event.data.kind
+			local path = event.data.path
 
+			if type ~= 'install' and type ~= 'update' then return end
+			
+			if name == 'telescope-fzf-native.nvim' and vim.fn.executable 'make' == 1 then
+				install_package(name, { 'make' }, path)
+				return
+			end
+		end,
+	})
+end
