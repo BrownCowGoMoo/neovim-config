@@ -95,4 +95,5 @@ do
 	})
 
 	require('browncow.telescope')
+	require('browncow.oil')
 end
