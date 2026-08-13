@@ -42,8 +42,8 @@ do
 	vim.opt.scrolloff = 10
 
 	-- Adds highlighting over yanked text
-	vim.api.nvim_create_autocmd('TextYankPost' {
-		group = vim.api.nvim_create_augroup('YankText', { clear = true })
+	vim.api.nvim_create_autocmd('TextYankPost', {
+		group = vim.api.nvim_create_augroup('YankText', { clear = true }),
 		callback = function()
 			vim.hl.on_yank()
 		end,
@@ -97,6 +97,5 @@ do
 
 	require('browncow.telescope')
 	require('browncow.oil')
-	require('browncow.treesitter')
 end
 
