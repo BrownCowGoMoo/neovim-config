@@ -94,7 +94,6 @@ do
 
 			if name == 'nvim-treesitter' then
 				vim.cmd 'TSUpdate'
-				return
 			end
 		end,
 	})
@@ -104,5 +103,6 @@ do
 	require('browncow.lsp-config')
 	require('browncow.mason')
 	require('browncow.mason-lsp-config')
+	require('browncow.treesitter')
 end
 
