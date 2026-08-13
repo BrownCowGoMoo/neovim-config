@@ -103,5 +103,6 @@ do
 	require('browncow.oil')
 	require('browncow.lsp-config')
 	require('browncow.mason')
+	require('browncow.mason-lsp-config')
 end
 
