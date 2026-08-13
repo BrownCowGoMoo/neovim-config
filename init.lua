@@ -91,6 +91,11 @@ do
 				install_package(name, { 'make' }, path)
 				return
 			end
+
+			if name == 'nvim-treesitter' then
+				vim.cmd 'TSUpdate'
+				return
+			end
 		end,
 	})
 
