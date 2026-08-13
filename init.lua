@@ -33,8 +33,6 @@ do
 	vim.opt.signcolumn = 'yes'
 
 	vim.opt.errorbells = false
-	-- Makes neovim share the clipboard when yanking text
-	vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
 
 	vim.opt.hidden = true
 
@@ -43,14 +41,14 @@ do
 
 	vim.opt.scrolloff = 10
 
-	-- Auto command that highlights text when coppied
-		vim.api.nvim_create_autocmd('TextYankPost', {
-		group = vim.api.nvim_create_augroup('CopyPasteText', { clear = true }),
+	-- Adds highlighting over yanked text
+	vim.api.nvim_create_autocmd('TextYankPost' {
+		group = vim.api.nvim_create_augroup('YankText', { clear = true })
 		callback = function()
 			vim.hl.on_yank()
 		end,
 	})
-
+			
 	-- Basic diagnostic config
 	vim.diagnostic.config({
 		severity_sort = true,
