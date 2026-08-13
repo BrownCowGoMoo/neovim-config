@@ -35,7 +35,7 @@ do
 
 	vim.opt.errorbells = false
 	-- Makes neovim share the clipboard when yanking text
-	vim.opt.clipboard = 'unnamedplus'
+	vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
 
 	vim.opt.hidden = true
 
@@ -97,3 +97,4 @@ do
 	require('browncow.telescope')
 	require('browncow.oil')
 end
+
