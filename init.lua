@@ -42,6 +42,14 @@ do
 
 	vim.opt.smartcase = true
 	vim.opt.ignorecase = true
+
+	--Auto command that highlights text when coppied
+	vim.api.nvim_create_autocmd('TextYankPost', {
+		vim.api.nvim_create_augroup('YankText', { clear = true }),
+		callback = function()
+			vim.hl.on_yank()
+		end,
+	})
 end
 
 
