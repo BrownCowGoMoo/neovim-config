@@ -70,7 +70,7 @@ end
 do
 	local function install_package(name, command, path)
 		local buildResults = vim.system(command, { cwd = path }):wait()
-		if buildRsults.code ~= 0 then
+		if buildResults.code ~= 0 then
 			local stderr = buildResult.stderr or ''
 			local stdout = buildResult.stdout or ''
 			local output = stderr ~= '' and stderr or stdout
@@ -78,7 +78,6 @@ do
 			vim.notify(('There was an issue of the build of the package: %s\noutput" %s'):format(name, output))
 		end
 	end
-
 
 	vim.api.nvim_create_autocmd('PackChanged', {
 		callback = function(event)
@@ -94,4 +93,6 @@ do
 			end
 		end,
 	})
+
+	require('browncow.telescope')
 end
