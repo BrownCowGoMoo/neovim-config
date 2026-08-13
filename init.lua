@@ -10,7 +10,6 @@ do
 	vim.g.maplocalleader = ' '
 	vim.g.have_nerd_font = true
 
-
 	vim.opt.number = true
 	vim.opt.relativenumber = true
 
@@ -32,9 +31,9 @@ do
 
 	vim.opt.cursorcolumn = false
 	vim.opt.cursorline = true
+	vim.opt.signcolumn = 'yes'
 
 	vim.opt.errorbells = false
-
 	-- Makes neovim share the clipboard when yanking text
 	vim.opt.clipboard = 'unnamedplus'
 
@@ -42,6 +41,8 @@ do
 
 	vim.opt.smartcase = true
 	vim.opt.ignorecase = true
+
+	vim.opt.scrolloff = 10
 
 	-- Auto command that highlights text when coppied
 		vim.api.nvim_create_autocmd('TextYankPost', {
