@@ -43,12 +43,22 @@ do
 	vim.opt.smartcase = true
 	vim.opt.ignorecase = true
 
-	--Auto command that highlights text when coppied
-	vim.api.nvim_create_autocmd('TextYankPost', {
-		vim.api.nvim_create_augroup('YankText', { clear = true }),
+	-- Auto command that highlights text when coppied
+		vim.api.nvim_create_autocmd('TextYankPost', {
+		group = vim.api.nvim_create_augroup('CopyPasteText', { clear = true }),
 		callback = function()
 			vim.hl.on_yank()
 		end,
+	})
+
+	-- Basic diagnostic config
+	vim.diagnostic.config({
+		severity_sort = true,
+		update_in_insert = false,
+		float = { border = 'rounded', source = 'if_many' },
+		underline = { severity = { min = vim.diagnostic.severity.WARN } },
+
+		virtual_text = true
 	})
 end
 
