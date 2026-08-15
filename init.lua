@@ -68,8 +68,8 @@ do
 	local function install_package(name, command, path)
 		local buildResults = vim.system(command, { cwd = path }):wait()
 		if buildResults.code ~= 0 then
-			local stderr = buildResult.stderr or ''
-			local stdout = buildResult.stdout or ''
+			local stderr = buildResults.stderr or ''
+			local stdout = buildResults.stdout or ''
 			local output = stderr ~= '' and stderr or stdout
 			if output == '' then output = 'No output from package build' end
 			vim.notify(('There was an issue of the build of the package: %s\noutput" %s'):format(name, output))
@@ -97,5 +97,6 @@ do
 
 	require('browncow.telescope')
 	require('browncow.oil')
+	require('browncow.lsp.lsp')
 end
 
