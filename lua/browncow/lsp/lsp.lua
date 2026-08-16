@@ -44,10 +44,9 @@ do
 				return
 			end
 			local installed_parsers = require('nvim-treesitter').get_installed()
-			if is_within(language, installed_parsers) then
-				if not vim.treesitter.language.add(language) then return end
-				vim.treesitter.start(buffer, language)
-			end
+			if not is_within(language, installed_parsers) then return end
+			if not vim.treesitter.language.add(language) then return end
+			vim.treesitter.start(buffer, language)
 			if not name_server_config[language] then
 				print(('No language %s found in the given table'):format(language))
 				return
