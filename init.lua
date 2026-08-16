@@ -51,6 +51,7 @@ do
 			vim.hl.on_yank()
 		end,
 	})
+	vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 	-- Basic diagnostic config
 	vim.diagnostic.config({
