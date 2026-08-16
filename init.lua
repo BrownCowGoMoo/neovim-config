@@ -66,11 +66,14 @@ end
 
 do
 	local function install_package(name, command, path)
+
 		local buildResults = vim.system(command, { cwd = path }):wait()
 		if buildResults.code ~= 0 then
+
 			local stderr = buildResults.stderr or ''
 			local stdout = buildResults.stdout or ''
 			local output = stderr ~= '' and stderr or stdout
+
 			if output == '' then output = 'No output from package build' end
 			vim.notify(('There was an issue of the build of the package: %s\noutput" %s'):format(name, output))
 		end
@@ -78,6 +81,7 @@ do
 
 	vim.api.nvim_create_autocmd('PackChanged', {
 		callback = function(event)
+
 			local name = event.data.spec.name
 			local type = event.data.kind
 			local path = event.data.path
