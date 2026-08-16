@@ -41,6 +41,9 @@ do
 
 	vim.opt.scrolloff = 10
 
+	vim.opt.updatetime = 250
+	vim.opt.timeoutlen = 300
+
 	-- Adds highlighting over yanked text
 	vim.api.nvim_create_autocmd('TextYankPost', {
 		group = vim.api.nvim_create_augroup('YankText', { clear = true }),
