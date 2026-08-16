@@ -102,5 +102,6 @@ do
 	require('browncow.telescope')
 	require('browncow.oil')
 	require('browncow.lsp.lsp')
+	require('browncow.colorscheme')
 end
 
