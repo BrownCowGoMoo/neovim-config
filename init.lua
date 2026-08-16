@@ -48,7 +48,7 @@ do
 			vim.hl.on_yank()
 		end,
 	})
-			
+
 	-- Basic diagnostic config
 	vim.diagnostic.config({
 		severity_sort = true,
@@ -83,7 +83,7 @@ do
 			local path = event.data.path
 
 			if type ~= 'install' and type ~= 'update' then return end
-			
+
 			if name == 'telescope-fzf-native.nvim' and vim.fn.executable 'make' == 1 then
 				install_package(name, { 'make' }, path)
 				return
