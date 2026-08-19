@@ -108,5 +108,8 @@ do
 	require('browncow.lsp.lsp')
 	require('browncow.colorscheme')
 	require('browncow.guess-indent')
+	require('browncow.mini')
+	require('browncow.autocomplete.snippets')
+	require('browncow.autocomplete.blink')
 end
 
