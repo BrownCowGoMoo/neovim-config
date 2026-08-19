@@ -107,5 +107,6 @@ do
 	require('browncow.oil')
 	require('browncow.lsp.lsp')
 	require('browncow.colorscheme')
+	require('browncow.guess-indent')
 end
 
