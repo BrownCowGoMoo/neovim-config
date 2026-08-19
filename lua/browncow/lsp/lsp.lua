@@ -34,6 +34,10 @@ do
 				},
 			},
 		},
+		python = {
+			server = 'pyright',
+			config = {},
+		},
 	}
 
 	vim.api.nvim_create_autocmd('FileType', {
@@ -58,6 +62,11 @@ do
 			end
 
 			if not name_server_config[language]['server'] then
+				print(('No server found in the given table for language %s'):format(language))
+				return
+			end
+
+			if not name_server_config[language]['config'] then
 				print(('No config found in the given table for language %s'):format(language))
 				return
 			end
